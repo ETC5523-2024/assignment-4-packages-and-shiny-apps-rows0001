@@ -1,0 +1,107 @@
+---
+title: "UFO_Analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{UFO Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Introduction
+
+In this vignette, we will explore the ufoPackage, which provides tools for analyzing UFO sighting data. We will go through how to load the dataset, summarize the data, visualize trends over time, and utilize the Shiny app included in the package.
+
+## Installation
+
+To install the ufoPackage, use the following command in your R console:
+
+```{r}
+# Install the development version from GitHub
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-rows0001/ufopackage/ufoPackage")
+
+```
+
+
+## Loading the Package and Dataset 
+
+First, let's load the ufoPackage and the dataset:
+
+```{r setup}
+library(ufoPackage)
+
+# Load the cleaned UFO sightings dataset
+data("ufo_sightings")
+
+# View the first few rows of the dataset
+head(ufo_sightings)
+```
+
+
+## Data Summary
+
+We can obtain a summary of the dataset to understand its structure and contents
+
+```{r}
+# Summary of the UFO sightings data
+summary(ufo_sightings)
+
+```
+
+
+## Visualizing UFO Sightings
+
+Let's visualize the number of UFO sightings over the years to identify trends. We will create a line plot showing the yearly count of sightings:
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Summarize sightings per year
+yearly_sightings <- ufo_sightings %>%
+  mutate(year = format(as.POSIXct(reported_date_time, format = "%Y-%m-%d %H:%M:%S"), "%Y")) %>%
+  group_by(year) %>%
+  summarise(count = n(), .groups = 'drop')
+
+# Plotting the yearly sightings
+ggplot(yearly_sightings, aes(x = as.numeric(year), y = count)) +
+  geom_line() +
+  labs(title = "UFO Sightings per Year", x = "Year", y = "Number of Sightings") +
+  theme_minimal()
+
+```
+
+
+## Using the Shiny App
+
+The ufoPackage includes a Shiny app that allows for interactive exploration of the UFO sightings dataset. You can launch the app with the following command:
+
+```{r}
+run_ufo_app()  # Launch the Shiny app
+
+```
+
+
+## Features of the Shiny App
+
+- Interactive Filtering: Users can filter sightings based on criteria such as year, shape, and location.
+- Dynamic Visualizations: The app updates graphs and summaries based on user selections, providing an interactive experience.
+- User Guidance: Descriptions and instructions are provided to help users navigate the app and interpret the data.
+
+
+## Conclusion
+
+In this vignette, we demonstrated how to utilize the ufoPackage for exploring UFO sighting data. We covered how to load the dataset, summarize it, visualize trends, and interact with the Shiny app for deeper analysis.
+
+For more details and additional functions, please refer to the package documentation.
+
+## Acknowledgments
+
+Thanks to the contributors of the UFO dataset and the R community for their valuable resources that made this analysis possible.

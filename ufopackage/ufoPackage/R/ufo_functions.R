@@ -84,3 +84,12 @@ plot_sightings_by_shape <- function(data) {
     theme_minimal() +
     coord_flip() # Flipping coordinates for better visibility
 }
+
+#' Run the UFO Shiny App
+#'
+#' This function launches the Shiny app for exploring UFO sightings data.
+#' @export
+run_ufo_app <- function() {
+  shiny::runApp(system.file("shiny", package = "ufoPackage"))
+}
+

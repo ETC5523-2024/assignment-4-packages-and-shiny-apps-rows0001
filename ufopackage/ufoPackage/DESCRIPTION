@@ -3,8 +3,8 @@ Title: Tools for UFO Sightings Analysis and Exploration
 Version: 0.0.0.9000
 Authors@R: 
     person("Rowshni", "Farnaz Fatema", email = "rows0001@student.monash.edu", role = c("aut", "cre"))
-Description:  A package to analyze and explore UFO sightings data, providing a cleaned dataset, custom functions, and an interactive Shiny application for visualization.
-License:  MIT + file LICENSE
+Description: A package to analyze and explore UFO sightings data, providing a cleaned dataset, custom functions, and an interactive Shiny application for visualization.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0.0)
@@ -19,3 +19,7 @@ Imports:
     withr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
