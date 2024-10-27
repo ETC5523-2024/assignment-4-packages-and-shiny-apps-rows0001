@@ -90,6 +90,6 @@ plot_sightings_by_shape <- function(data) {
 #' This function launches the Shiny app for exploring UFO sightings data.
 #' @export
 run_ufo_app <- function() {
-  shiny::runApp(system.file("shiny", package = "ufoPackage"))
+  shiny::runApp(system.file("shinyapp", package = "ufoPackage"), launch.browser = TRUE)
 }
 
