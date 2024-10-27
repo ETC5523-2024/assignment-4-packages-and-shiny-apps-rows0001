@@ -96,7 +96,7 @@ ggplot(yearly_sightings, aes(x = as.numeric(year), y = count)) +
 This package includes a Shiny app that allows users to interactively explore the UFO sightings dataset. You can launch the app using the following command:
 
 ```{r}
-run_ufo_app()  # This function launches the Shiny app
+#run_ufo_app()  # This function launches the Shiny app
 
 ```
 
