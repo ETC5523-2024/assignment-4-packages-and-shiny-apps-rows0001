@@ -108,6 +108,12 @@ This package includes a Shiny app that allows users to interactively explore the
 - User Guidance: Clear descriptions are provided to help users understand the dataset and how to interpret the outputs.
 
 
+## pkgdown Site
+
+For more detailed documentation, visit the [pkgdown site](https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-rows0001/).
+
+
+
 ## Contribution
 
 If you would like to contribute to ufoPackage, feel free to fork the repository and submit a pull request. For any issues or feature requests, please create an issue in the GitHub repository.
